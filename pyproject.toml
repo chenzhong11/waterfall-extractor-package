@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "waterfall-extractor"
+version = "1.0.0"
+description = "Integration-oriented spectrum waterfall/cascade feature extraction package for vibration signals."
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "scipy",
+]
+
+[tool.setuptools.packages.find]
+include = ["waterfall_extractor*"]
