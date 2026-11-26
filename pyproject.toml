@@ -6,6 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "waterfall-extractor"
 version = "1.0.0"
 description = "Integration-oriented spectrum waterfall/cascade feature extraction package for vibration signals."
+readme = "README_EN.md"
+license = { text = "MIT" }
+authors = [{ name = "Hao Wei" }]
 requires-python = ">=3.9"
 dependencies = [
     "numpy",
@@ -14,3 +17,7 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 include = ["waterfall_extractor*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

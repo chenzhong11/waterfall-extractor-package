@@ -1,5 +1,7 @@
 # 频谱瀑布图/级联图特征提取封装包
 
+**中文** | [English Documentation](README_EN.md)
+
 `waterfall_extractor` 是一个面向工程集成的频谱瀑布图/级联图特征提取包。
 
 核心特点：

@@ -341,10 +341,20 @@ def build_waterfall_matrix(
         window_type，窗函数类型。
     输出参数: 包含 matrix、freq_axis、time_axis、mode、metadata 的字典。
     """
+    arr = np.asarray(signal_data, dtype=float)
+    if arr.ndim != 1:
+        raise SignalInputError(f"Expected 1D vibration signal, got shape {arr.shape}")
+    if arr.size < window_size:
+        raise SignalInputError(
+            f"Signal length ({arr.size}) must be >= window_size ({window_size})"
+        )
+    if not np.all(np.isfinite(arr)):
+        raise SignalInputError("Input signal contains NaN or infinite values")
+
     noverlap = int(window_size * overlap)
 
     freqs, times, Sxx = spectrogram(
-        signal_data, fs=fs,
+        arr, fs=fs,
         window=window_type,
         nperseg=window_size,
         noverlap=noverlap,
